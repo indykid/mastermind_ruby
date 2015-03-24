@@ -7,5 +7,5 @@ $LOAD_PATH.unshift(dir_name) unless $LOAD_PATH.include?(dir_name)
 require 'mastermind'
 require 'codebreaker'
 
-mastermind = Mastermind.new($stdout, $stdin, Codebreaker.new)
+mastermind = Mastermind.new($stdout, Codebreaker.new, $stdin)
 mastermind.start
