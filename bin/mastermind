@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+dir_name = File.expand_path(File.dirname(File.dirname(__FILE__))) + "/lib"
+
+$LOAD_PATH.unshift(dir_name) unless $LOAD_PATH.include?(dir_name)
+
+require 'mastermind'
+require 'codebreaker'
+
+mastermind = Mastermind.new($stdout, $stdin, Codebreaker.new)
+mastermind.start
