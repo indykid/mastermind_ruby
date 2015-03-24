@@ -12,19 +12,19 @@ describe Mastermind do
     it 'displays welcome message' do
       mastermind.start
 
-      expect(mastermind.output.string).to start_with(Mastermind::GREETING)
+      expect(output.string).to start_with(Mastermind::GREETING)
     end
 
     it 'displays guess from codebreaker' do
       mastermind.start
 
-      expect(mastermind.output.string).to include(mastermind.codebreaker.guesses.last)
+      expect(output.string).to include(codebreaker.guesses.last)
     end
 
     it 'asks user for "correct colours" score' do
       mastermind.start
 
-      expect(mastermind.output.string).to include(Mastermind::CORRECT_SCORE_REQUEST)
+      expect(output.string).to include(Mastermind::CORRECT_SCORE_REQUEST)
     end
 
     it 'codebreaker receives "correct colours" score' do
@@ -33,13 +33,13 @@ describe Mastermind do
 
       mastermind.start
 
-      expect(mastermind.codebreaker.corrects.last).to eq("2")
+      expect(codebreaker.corrects.last).to eq("2")
     end
 
     it 'asks user for "exact colours" score' do
       mastermind.start
 
-      expect(mastermind.output.string).to include(Mastermind::EXACT_SCORE_REQUEST)
+      expect(output.string).to include(Mastermind::EXACT_SCORE_REQUEST)
     end
 
     it 'codebreaker receives "correct colours" score' do
@@ -48,7 +48,7 @@ describe Mastermind do
 
       mastermind.start
 
-      expect(mastermind.codebreaker.exacts.last).to eq("1")
+      expect(codebreaker.exacts.last).to eq("1")
     end
   end
 end
