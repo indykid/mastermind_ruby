@@ -12,13 +12,29 @@ class Mastermind
   end
 
   def start
-    output.puts(GREETING)
-    output.puts(codebreaker.guess)
-    output.puts(CORRECT_SCORE_REQUEST)
+    display(GREETING)
+    display(codebreaker.guess)
+    display(CORRECT_SCORE_REQUEST)
+    capture_correct_score
+    display(EXACT_SCORE_REQUEST)
+    capture_exact_score
+  end
+
+  private
+
+  def display(message)
+    output.puts(message)
+  end
+
+  def capture_correct_score
     correct = input.gets
     codebreaker.corrects << correct.chomp if correct
-    output.puts(EXACT_SCORE_REQUEST)
+  end
+
+  def capture_exact_score
     exact = input.gets
     codebreaker.exacts << exact.chomp if exact
   end
+
+
 end
