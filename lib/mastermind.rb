@@ -15,9 +15,9 @@ class Mastermind
     display(GREETING)
     display(codebreaker.guess)
     display(CORRECT_SCORE_REQUEST)
-    capture_correct_score
+    capture_score(codebreaker.corrects)
     display(EXACT_SCORE_REQUEST)
-    capture_exact_score
+    capture_score(codebreaker.exacts)
   end
 
   private
@@ -26,14 +26,9 @@ class Mastermind
     output.puts(message)
   end
 
-  def capture_correct_score
-    correct = input.gets
-    codebreaker.corrects << correct.chomp if correct
-  end
-
-  def capture_exact_score
-    exact = input.gets
-    codebreaker.exacts << exact.chomp if exact
+  def capture_score(scores)
+    score = input.gets
+    scores << score.chomp if score
   end
 
 
