@@ -4,6 +4,8 @@ class Mastermind
   GREETING = "Welcome to the Mastermind"
   CORRECT_SCORE_REQUEST = "How many colours correct? "
   EXACT_SCORE_REQUEST = "How many colours are in the exact spot? "
+  MAX_ATTEMPTS = 10
+  HIGHEST_SCORE = 4
 
   def initialize(output, codebreaker, input)
     @output = output
@@ -13,11 +15,17 @@ class Mastermind
 
   def start
     display(GREETING)
-    display(codebreaker.guess)
-    display(CORRECT_SCORE_REQUEST)
-    capture_score(codebreaker.corrects)
-    display(EXACT_SCORE_REQUEST)
-    capture_score(codebreaker.exacts)
+    MAX_ATTEMPTS.times do
+      display(codebreaker.guess)
+      display(CORRECT_SCORE_REQUEST)
+      capture_score(codebreaker.corrects)
+      display(EXACT_SCORE_REQUEST)
+      capture_score(codebreaker.exacts)
+    end
+  end
+
+  def over?
+    codebreaker.exacts.count == MAX_ATTEMPTS || codebreaker.exacts.last == HIGHEST_SCORE
   end
 
   private
@@ -28,8 +36,7 @@ class Mastermind
 
   def capture_score(scores)
     score = input.gets
-    scores << score.chomp if score
+    scores << score.chomp.to_i if score
   end
-
 
 end

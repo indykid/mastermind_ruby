@@ -33,7 +33,7 @@ describe Mastermind do
 
       mastermind.start
 
-      expect(codebreaker.corrects.last).to eq("2")
+      expect(codebreaker.corrects.last).to eq(2)
     end
 
     it 'asks user for "exact colours" score' do
@@ -42,13 +42,30 @@ describe Mastermind do
       expect(output.string).to include(Mastermind::EXACT_SCORE_REQUEST)
     end
 
-    it 'codebreaker receives "correct colours" score' do
+    it 'codebreaker receives "exact colours" score' do
       input = StringIO.new("2\n1\n")
       mastermind = Mastermind.new(output, codebreaker, input)
 
       mastermind.start
 
-      expect(codebreaker.exacts.last).to eq("1")
+      expect(codebreaker.exacts.last).to eq(1)
+    end
+
+    it 'is over when codebreaker uses max attempts' do
+      input = StringIO.new("2\n1\n"*Mastermind::MAX_ATTEMPTS)
+      mastermind = Mastermind.new(output, codebreaker, input)
+
+      mastermind.start
+
+      expect(mastermind.over?).to be(true)
+    end
+
+    it 'is over when codebreaker gets correct code' do
+      input = StringIO.new("2\n1\n4\n4\n")
+      mastermind = Mastermind.new(output, codebreaker, input)
+
+      mastermind.start
+      expect(mastermind.over?).to be(true)
     end
   end
 end
