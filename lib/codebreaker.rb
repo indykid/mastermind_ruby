@@ -1,5 +1,7 @@
 class Codebreaker
   attr_reader :guesses, :corrects, :exacts
+  attr_accessor :guesses, :exacts
+
   def initialize
     @guesses = []
     @corrects = []

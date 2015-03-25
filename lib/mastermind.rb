@@ -15,28 +15,32 @@ class Mastermind
 
   def start
     display(GREETING)
-    MAX_ATTEMPTS.times do
-      display(codebreaker.guess)
-      display(CORRECT_SCORE_REQUEST)
-      capture_score(codebreaker.corrects)
-      display(EXACT_SCORE_REQUEST)
-      capture_score(codebreaker.exacts)
+    until over? do
+      play
     end
   end
 
+  def play
+    display(codebreaker.guess)
+    display(CORRECT_SCORE_REQUEST)
+    capture_score(codebreaker.corrects)
+    display(EXACT_SCORE_REQUEST)
+    capture_score(codebreaker.exacts)
+  end
+
   def over?
-    codebreaker.exacts.count == MAX_ATTEMPTS || codebreaker.exacts.last == HIGHEST_SCORE
+    codebreaker.exacts.last == HIGHEST_SCORE || codebreaker.guesses.count == MAX_ATTEMPTS
+  end
+
+  def capture_score(scores)
+    score = input.gets
+    scores << score.chomp.to_i if score
   end
 
   private
 
   def display(message)
     output.puts(message)
-  end
-
-  def capture_score(scores)
-    score = input.gets
-    scores << score.chomp.to_i if score
   end
 
 end
