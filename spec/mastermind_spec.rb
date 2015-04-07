@@ -39,13 +39,13 @@ describe Mastermind do
       it 'updates "correct colours" score' do
         input = StringIO.new("2\n")
         mastermind = Mastermind.new(output, codebreaker, input)
-
+# should i give it any array and test that?
         mastermind.capture_score(codebreaker.corrects)
 
         expect(codebreaker.corrects.last).to eq(2)
       end
     end
-
+# is this test necessary?
     context 'when asking for exact score' do
       it 'updates "exact colours" score' do
         input = StringIO.new("1\n")
@@ -59,19 +59,12 @@ describe Mastermind do
   end
 
   it 'is over when codebreaker uses max attempts' do
-    # input = StringIO.new("2\n1\n"*Mastermind::MAX_ATTEMPTS)
-    # mastermind = Mastermind.new(output, codebreaker, input)
-
-    # mastermind.start
     codebreaker.guesses = ['rrrg', 'rrrg', 'rrrg', 'rrrg', 'rrrg', 'rrrg', 'rrrg', 'rrrg', 'rrrg', 'rrrg']
+
     expect(mastermind.over?).to be(true)
   end
 
   it 'is over when codebreaker gets correct code' do
-    # input = StringIO.new("2\n1\n4\n4\n")
-    # mastermind = Mastermind.new(output, codebreaker, input)
-
-    # mastermind.start
     codebreaker.exacts = [1, 4]
     expect(mastermind.over?).to be(true)
   end
@@ -90,6 +83,11 @@ describe Mastermind do
 
     mastermind.start
     expect(codebreaker.guesses.count).to eq(2)
+  end
+
+  it 'anounces winner at the end' do
+    mastermind.start
+    expect(output.string.chomp).to end_with(mastermind.winner_announcement)
   end
 end
 
