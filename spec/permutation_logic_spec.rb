@@ -4,7 +4,7 @@ describe PermutationLogic do
     it "given one option and one space generates one permutation" do
       options = [0]
       spaces  = 1
-      expect(PermutationLogic.generate(options, spaces)).to eq([0])
+      expect(PermutationLogic.generate(options, spaces)).to eq([[0]])
     end
 
     it "given two options and one space generates 2 permutations" do
