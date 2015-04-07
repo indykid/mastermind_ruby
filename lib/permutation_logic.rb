@@ -4,8 +4,10 @@ class PermutationLogic
 
     if options.length == 1
       [0]
-    else
+    elsif options.length == 2
       [[0], [1]]
+    elsif options.length == 3
+      [[0], [1], [2]]
     end
 
   end
