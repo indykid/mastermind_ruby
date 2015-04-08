@@ -19,10 +19,10 @@ describe PermutationLogic do
       expect(PermutationLogic.generate(options, spaces)).to eq([[0], [1], [2]])
     end
 
-    xit "given two options and two space generates 4 permutations" do
+    it "given two options and two space generates four permutations" do
       options = [0, 1]
       spaces  = 2
-      expect(PermutationLogic.generate(options, spaces)).to eq([[0, 0], [0, 1], [1, 0], [1, 1]])
+      expect(PermutationLogic.generate(options, spaces).sort).to eq([[0, 0], [0, 1], [1, 0], [1, 1]])
     end
 
   end
