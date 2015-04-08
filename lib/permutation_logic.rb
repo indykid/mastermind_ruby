@@ -1,6 +1,6 @@
 class PermutationLogic
 
-  def self.generate(options)
+  def self.generate(options, spaces)
     result = []
     options.each do |option|
       result << [option]
