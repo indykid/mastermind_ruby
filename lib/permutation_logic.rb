@@ -7,7 +7,7 @@ class PermutationLogic
       options.each do |option|
         result << [option]
       end
-    else
+    elsif spaces == 2
       options.each do |option|
         permutation = []
         options.each do |o|
@@ -19,6 +19,21 @@ class PermutationLogic
           result << permutation
         end
       end
+    elsif spaces == 3
+      options.each do |a|
+          permutation = []
+          options.each do |b|
+            options.each do |c|
+              if permutation.length == spaces
+                permutation = []
+              end
+              permutation << a
+              permutation << b
+              permutation << c
+              result << permutation
+            end
+          end
+        end
     end
     result
   end
