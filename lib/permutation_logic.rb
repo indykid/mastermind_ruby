@@ -4,34 +4,25 @@ class PermutationLogic
   def self.generate(options, spaces)
     result = []
     if spaces == 1
-      options.each do |option|
+      options.each do |a|
         permutation = []
-        if permutation.length == spaces
-          permutation = []
-        end
-        permutation << option
+        permutation << a
         result << permutation
       end
     elsif spaces == 2
-      options.each do |option|
-        permutation = []
-        options.each do |o|
-          if permutation.length == spaces
-            permutation = []
-          end
-          permutation << option
-          permutation << o
+      options.each do |a|
+        options.each do |b|
+          permutation = []
+          permutation << a
+          permutation << b
           result << permutation
         end
       end
     elsif spaces == 3
       options.each do |a|
-          permutation = []
           options.each do |b|
             options.each do |c|
-              if permutation.length == spaces
-                permutation = []
-              end
+              permutation = []
               permutation << a
               permutation << b
               permutation << c
@@ -42,5 +33,6 @@ class PermutationLogic
     end
     result
   end
+
 
 end
