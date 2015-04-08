@@ -5,7 +5,12 @@ class PermutationLogic
     result = []
     if spaces == 1
       options.each do |option|
-        result << [option]
+        permutation = []
+        if permutation.length == spaces
+          permutation = []
+        end
+        permutation << option
+        result << permutation
       end
     elsif spaces == 2
       options.each do |option|
