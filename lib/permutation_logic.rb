@@ -8,18 +8,14 @@ class PermutationLogic
         result << [option]
       end
     else
-      permutation = []
       options.each do |option|
-        permutation << option
+        permutation = []
         options.each do |o|
           if permutation.length == spaces
             permutation = []
           end
-
+          permutation << option
           permutation << o
-          if result.include?(permutation)
-            permutation = permutation.reverse
-          end
           result << permutation
         end
       end
