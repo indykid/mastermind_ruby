@@ -4,6 +4,7 @@ class PermutationLogic
   def self.generate(options, spaces)
     result = []
     if spaces == 1
+      permutation = []
       options.each do |a|
         permutation = []
         permutation << a
@@ -33,6 +34,5 @@ class PermutationLogic
     end
     result
   end
-
 
 end
