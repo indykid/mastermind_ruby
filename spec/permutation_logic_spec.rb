@@ -15,5 +15,18 @@ describe PermutationLogic do
         expect(PermutationLogic.generate(options)).to eq([[2]])
       end
     end
+
+    context "given two options and one space generates two permutations" do
+      it "[0, 1]" do
+        options = [0, 1]
+        expect(PermutationLogic.generate(options)).to eq([[0], [1]])
+      end
+
+      it "[1, 2]" do
+        options = [1, 2]
+        expect(PermutationLogic.generate(options)).to eq([[1], [2]])
+      end
+
+    end
   end
 end
