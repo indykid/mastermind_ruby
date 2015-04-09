@@ -39,6 +39,11 @@ describe PermutationLogic do
         spaces = 2
         expect(PermutationLogic.generate(options, spaces)).to eq([[0, 0]])
       end
+      it "[1]" do
+        options = [1]
+        spaces = 2
+        expect(PermutationLogic.generate(options, spaces)).to eq([[1, 1]])
+      end
 
     end
 
