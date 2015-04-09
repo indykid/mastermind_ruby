@@ -13,8 +13,11 @@ class PermutationLogic
       result << permutation
     else
       options.each do |option|
-        result << [option]
+        permutation = []
+        permutation << option
+        result << permutation
       end
+
     end
     result
   end
