@@ -1,10 +1,14 @@
 require 'pry'
 class PermutationLogic
 
-  def self.generate(options)
+  def self.generate(options, spaces)
     result = []
-    options.each do |option|
-      result << [option]
+    if spaces == 2
+      result << [0, 0]
+    else
+      options.each do |option|
+        result << [option]
+      end
     end
     result
   end
