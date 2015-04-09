@@ -14,7 +14,9 @@ class PermutationLogic
     else
       options.each do |option|
         permutation = []
-        permutation << option
+        while permutation.length < spaces
+          permutation << option
+        end
         result << permutation
       end
     end
