@@ -22,7 +22,12 @@ describe PermutationLogic do
     it "given two options and two spaces generates four permutations" do
       options = [0, 1]
       spaces  = 2
-      expect(PermutationLogic.generate(options, spaces)).to eq([[0, 0], [0, 1], [1, 0], [1, 1]])
+      expect(PermutationLogic.generate(options, spaces)).to eq(
+        [ [0, 0],
+          [0, 1],
+          [1, 0],
+          [1, 1]
+        ])
     end
 
     it "given three options and three spaces generates twenty seven permutations" do

@@ -3,14 +3,16 @@ class PermutationLogic
 
   def self.generate(options, spaces)
     result = []
+
     if spaces == 1
-      permutation = []
       options.each do |a|
         permutation = []
         permutation << a
         result << permutation
       end
-    elsif spaces == 2
+    end
+
+    if spaces == 2
       options.each do |a|
         options.each do |b|
           permutation = []
@@ -19,20 +21,21 @@ class PermutationLogic
           result << permutation
         end
       end
-    elsif spaces == 3
+    end
+
+    if spaces == 3
       options.each do |a|
-          options.each do |b|
-            options.each do |c|
-              permutation = []
-              permutation << a
-              permutation << b
-              permutation << c
-              result << permutation
-            end
+        options.each do |b|
+          options.each do |c|
+            permutation = []
+            permutation << a
+            permutation << b
+            permutation << c
+            result << permutation
           end
         end
+      end
     end
     result
   end
-
 end
