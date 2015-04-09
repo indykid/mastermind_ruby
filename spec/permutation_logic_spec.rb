@@ -52,7 +52,16 @@ describe PermutationLogic do
         expect(PermutationLogic.generate(options, spaces)).to eq([[1, 1]])
       end
 
-
     end
+
+    context "given one option and three spaces, returns one permutation with three elements" do
+      it "[[1, 1, 1]]" do
+        options = [1]
+        spaces  = 3
+        expect(PermutationLogic.generate(options, spaces)).to eq([[1, 1, 1]])
+      end
+    end
+
+
   end
 end

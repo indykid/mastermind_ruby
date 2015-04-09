@@ -3,7 +3,7 @@ class PermutationLogic
 
   def self.generate(options, spaces)
     result = []
-    if spaces == 2
+    if spaces > 1
       permutation = []
       while permutation.length < spaces
         options.each do |option|
