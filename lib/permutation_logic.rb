@@ -1,11 +1,24 @@
 require 'pry'
 class PermutationLogic
 
-  def self.generate(options)
+  def self.generate(options, spaces)
     result = []
-    options.each do |option|
-      result << [option]
+    if spaces == 2
+      permutation = []
+      while permutation.length < spaces
+        options.each do |option|
+          permutation << option
+        end
+      end
+      result << permutation
+    else
+      options.each do |option|
+        permutation = []
+        permutation << option
+        result << permutation
+      end
     end
+
     result
   end
 end
