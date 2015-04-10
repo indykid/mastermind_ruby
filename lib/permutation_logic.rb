@@ -5,20 +5,16 @@ class PermutationLogic
     result = []
 
     if spaces == 1
+      permutation = []
       options.each do |a|
-        permutation = []
-        permutation << a
-        result << permutation
+        result << [a]
       end
     end
 
     if spaces == 2
       options.each do |a|
         options.each do |b|
-          permutation = []
-          permutation << a
-          permutation << b
-          result << permutation
+          result << [a,b]
         end
       end
     end
@@ -27,11 +23,7 @@ class PermutationLogic
       options.each do |a|
         options.each do |b|
           options.each do |c|
-            permutation = []
-            permutation << a
-            permutation << b
-            permutation << c
-            result << permutation
+            result << [a,b,c]
           end
         end
       end

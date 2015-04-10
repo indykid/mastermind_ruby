@@ -1,23 +1,26 @@
 require 'permutation_logic'
 describe PermutationLogic do
   describe ".generate" do
-    it "given one option and one space generates one permutation" do
-      options = [0]
-      spaces  = 1
-      expect(PermutationLogic.generate(options, spaces)).to eq([[0]])
+    context "given one space" do
+      it "and one option generates one permutation" do
+        options = [0]
+        spaces  = 1
+        expect(PermutationLogic.generate(options, spaces)).to eq([[0]])
+      end
+
+      it "and two options generates 2 permutations" do
+        options = [0, 1]
+        spaces  = 1
+        expect(PermutationLogic.generate(options, spaces)).to eq([[0], [1]])
+      end
+
+      it "and three options generates three permutations" do
+        options = [0, 1, 2]
+        spaces  = 1
+        expect(PermutationLogic.generate(options, spaces)).to eq([[0], [1], [2]])
+      end
     end
 
-    it "given two options and one space generates 2 permutations" do
-      options = [0, 1]
-      spaces  = 1
-      expect(PermutationLogic.generate(options, spaces)).to eq([[0], [1]])
-    end
-
-    it "given three options and one space generates three permutations" do
-      options = [0, 1, 2]
-      spaces  = 1
-      expect(PermutationLogic.generate(options, spaces)).to eq([[0], [1], [2]])
-    end
 
     it "given two options and two spaces generates four permutations" do
       options = [0, 1]
