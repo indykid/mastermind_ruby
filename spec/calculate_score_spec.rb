@@ -138,17 +138,33 @@ describe CalculateScore do
       end
     end
 
-    context "comparing two arrays of size 4 with 4 common elements which are in different order returns score of 4" do
-      it do
-       code = [4, 5, 1, 8]
-       guess = [5, 4, 8, 1]
-       expect(CalculateScore.corrects(code, guess)).to eq(4)
+    context "comparing two arrays of size 4" do
+      context "with 4 common elements which are in different order returns score of 4" do
+        it do
+         code = [4, 5, 1, 8]
+         guess = [5, 4, 8, 1]
+         expect(CalculateScore.corrects(code, guess)).to eq(4)
+        end
+
+        it do
+          code = [4, 5, 1, 1]
+          guess = [1, 4, 5, 1]
+          expect(CalculateScore.corrects(code, guess)).to eq(4)
+        end
       end
 
-      it do
-        code = [4, 5, 1, 1]
-        guess = [1, 4, 5, 1]
-        expect(CalculateScore.corrects(code, guess)).to eq(4)
+      context "with 1 common element returns score of 1" do
+        it do
+         code = [4, 5, 1, 0]
+         guess = [3, 3, 2, 1]
+         expect(CalculateScore.corrects(code, guess)).to eq(1)
+        end
+
+        it do
+          code = [4, 5, 6, 0]
+          guess = [3, 2, 0, 1]
+          expect(CalculateScore.corrects(code, guess)).to eq(1)
+        end
       end
     end
 
