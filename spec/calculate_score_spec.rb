@@ -71,11 +71,7 @@ describe CalculateScore do
           expect(CalculateScore.corrects(code, guess)).to eq(2)
         end
 
-        xit do
-          code = [2, 0]
-          guess = [0, 2]
-          expect(CalculateScore.corrects(code, guess)).to eq(2)
-        end
+
 
       end
 
@@ -84,6 +80,24 @@ describe CalculateScore do
         guess = [2, 0, 1]
         expect(CalculateScore.corrects(code, guess)).to eq(3)
 
+      end
+
+      it "comparing two arrays of size 2 with two common elements which are in different order" do
+        code = [2, 0]
+        guess = [0, 2]
+        expect(CalculateScore.corrects(code, guess)).to eq(2)
+      end
+
+      it "comparing two arrays of size 2 with two common elements which are in different order" do
+        code = [3, 1]
+        guess = [1, 3]
+        expect(CalculateScore.corrects(code, guess)).to eq(2)
+      end
+
+      it "comparing two arrays of size 2 with two common elements which are in different order" do
+        code = [4, 5]
+        guess = [5, 4]
+        expect(CalculateScore.corrects(code, guess)).to eq(2)
       end
 
 
