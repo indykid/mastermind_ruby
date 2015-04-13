@@ -96,6 +96,26 @@ describe CalculateScore do
           end
         end
       end
+
+      context "with one common element returns score of 1" do
+        it do
+          code = [1, 4]
+          guess = [3, 1]
+          expect(CalculateScore.corrects(code, guess)).to eq(1)
+        end
+
+        it do
+          code = [2, 5]
+          guess = [2, 1]
+          expect(CalculateScore.corrects(code, guess)).to eq(1)
+        end
+
+        it do
+          code = [3, 5]
+          guess = [0, 3]
+          expect(CalculateScore.corrects(code, guess)).to eq(1)
+        end
+      end
     end
 
     context "comparing two arrays of size 3" do
@@ -131,5 +151,7 @@ describe CalculateScore do
         expect(CalculateScore.corrects(code, guess)).to eq(4)
       end
     end
+
+
   end
 end
