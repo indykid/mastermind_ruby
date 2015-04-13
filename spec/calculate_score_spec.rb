@@ -165,9 +165,33 @@ describe CalculateScore do
           guess = [3, 2, 0, 1]
           expect(CalculateScore.corrects(code, guess)).to eq(1)
         end
+
+        it do
+          code = [2, 2, 2, 0]
+          guess = [3, 2, 1, 1]
+          expect(CalculateScore.corrects(code, guess)).to eq(1)
+        end
+      end
+
+      context "with 2 common element returns score of 2" do
+        it do
+          code = [4, 5, 1, 3]
+          guess = [3, 3, 2, 1]
+          expect(CalculateScore.corrects(code, guess)).to eq(2)
+        end
+
+        it do
+          code = [4, 5, 6, 0]
+          guess = [6, 6, 0, 6]
+          expect(CalculateScore.corrects(code, guess)).to eq(2)
+        end
+
+        it do
+          code = [2, 2, 0, 0]
+          guess = [0, 2, 1, 1]
+          expect(CalculateScore.corrects(code, guess)).to eq(2)
+        end
       end
     end
-
-
   end
 end
