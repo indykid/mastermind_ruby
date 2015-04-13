@@ -100,6 +100,24 @@ describe CalculateScore do
         expect(CalculateScore.corrects(code, guess)).to eq(2)
       end
 
+      it "comparing two arrays of size 3 with 3 common elements which are in different order" do
+        code = [4, 5, 8]
+        guess = [5, 4, 8]
+        expect(CalculateScore.corrects(code, guess)).to eq(3)
+      end
+
+      it "comparing two arrays of size 3 with 3 common elements which are in different order" do
+        code = [4, 5, 1, 8]
+        guess = [5, 4, 8, 1]
+        expect(CalculateScore.corrects(code, guess)).to eq(4)
+      end
+
+     it "comparing two arrays of size 3 with 3 common elements which are in different order" do
+        code = [4, 5, 1, 1]
+        guess = [1, 4, 5, 1]
+        expect(CalculateScore.corrects(code, guess)).to eq(4)
+      end
+
 
     end
   end
