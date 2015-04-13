@@ -39,6 +39,7 @@ describe CalculateScore do
     end
 
     context "comparing two arrays of size 2" do
+
       context "without common elements returns 0 score" do
         it do
           code = [0, 1]
@@ -53,72 +54,82 @@ describe CalculateScore do
       end
 
       context "with two common elements returns score of 2" do
-        it do
-          code = [1, 4]
-          guess = [1, 4]
-          expect(CalculateScore.corrects(code, guess)).to eq(2)
+
+        context "elements are in the same order" do
+          it do
+            code = [1, 4]
+            guess = [1, 4]
+            expect(CalculateScore.corrects(code, guess)).to eq(2)
+          end
+
+          it do
+            code = [3, 5]
+            guess = [3, 5]
+            expect(CalculateScore.corrects(code, guess)).to eq(2)
+          end
+
+          it do
+            code = [2, 0]
+            guess = [2, 0]
+            expect(CalculateScore.corrects(code, guess)).to eq(2)
+          end
         end
 
-        it do
-          code = [3, 5]
-          guess = [3, 5]
-          expect(CalculateScore.corrects(code, guess)).to eq(2)
+
+        context "elements are in different order" do
+          it do
+            code = [2, 0]
+            guess = [0, 2]
+            expect(CalculateScore.corrects(code, guess)).to eq(2)
+          end
+
+          it do
+            code = [3, 1]
+            guess = [1, 3]
+            expect(CalculateScore.corrects(code, guess)).to eq(2)
+          end
+
+          it do
+            code = [4, 5]
+            guess = [5, 4]
+            expect(CalculateScore.corrects(code, guess)).to eq(2)
+          end
+        end
+      end
+    end
+
+    context "comparing two arrays of size 3" do
+      context "with three common elements returns score of 3" do
+        context "elements are in the same order" do
+          it do
+            code = [2, 0, 1]
+            guess = [2, 0, 1]
+            expect(CalculateScore.corrects(code, guess)).to eq(3)
+          end
         end
 
-        it do
-          code = [2, 0]
-          guess = [2, 0]
-          expect(CalculateScore.corrects(code, guess)).to eq(2)
+        context "elements are in different order" do
+          it do
+            code = [4, 5, 8]
+            guess = [5, 4, 8]
+            expect(CalculateScore.corrects(code, guess)).to eq(3)
+          end
         end
+      end
+    end
 
-
-
+    context "comparing two arrays of size 4 with 4 common elements which are in different order returns score of 4" do
+      it do
+       code = [4, 5, 1, 8]
+       guess = [5, 4, 8, 1]
+       expect(CalculateScore.corrects(code, guess)).to eq(4)
       end
 
-      it "comparing two arrays of size 3, with three common elements returns score of 3" do
-        code = [2, 0, 1]
-        guess = [2, 0, 1]
-        expect(CalculateScore.corrects(code, guess)).to eq(3)
-
-      end
-
-      it "comparing two arrays of size 2 with two common elements which are in different order" do
-        code = [2, 0]
-        guess = [0, 2]
-        expect(CalculateScore.corrects(code, guess)).to eq(2)
-      end
-
-      it "comparing two arrays of size 2 with two common elements which are in different order" do
-        code = [3, 1]
-        guess = [1, 3]
-        expect(CalculateScore.corrects(code, guess)).to eq(2)
-      end
-
-      it "comparing two arrays of size 2 with two common elements which are in different order" do
-        code = [4, 5]
-        guess = [5, 4]
-        expect(CalculateScore.corrects(code, guess)).to eq(2)
-      end
-
-      it "comparing two arrays of size 3 with 3 common elements which are in different order" do
-        code = [4, 5, 8]
-        guess = [5, 4, 8]
-        expect(CalculateScore.corrects(code, guess)).to eq(3)
-      end
-
-      it "comparing two arrays of size 3 with 3 common elements which are in different order" do
-        code = [4, 5, 1, 8]
-        guess = [5, 4, 8, 1]
-        expect(CalculateScore.corrects(code, guess)).to eq(4)
-      end
-
-     it "comparing two arrays of size 3 with 3 common elements which are in different order" do
+      it do
         code = [4, 5, 1, 1]
         guess = [1, 4, 5, 1]
         expect(CalculateScore.corrects(code, guess)).to eq(4)
       end
-
-
     end
   end
 end
