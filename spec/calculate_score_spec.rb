@@ -67,12 +67,11 @@ describe CalculateScore do
 
         it do
           code = [2, 0]
-          guess = [0, 2]
+          guess = [2, 0]
           expect(CalculateScore.corrects(code, guess)).to eq(2)
         end
 
       end
-
     end
   end
 end
