@@ -9,4 +9,12 @@ class CalculateScore
     end
     corrects
   end
+
+  def self.exacts(code, guess)
+    exacts = 0
+    code.length.times do |i|
+      exacts += 1 if code[i] == guess[i]
+    end
+    exacts
+  end
 end

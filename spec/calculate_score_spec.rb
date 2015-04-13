@@ -214,4 +214,39 @@ describe CalculateScore do
       end
     end
   end
+
+  describe ".exacts" do
+    it "comparing 2 arrays of 1 element returns 0 if no common elements in the same place" do
+      code = [0]
+      guess = [1]
+      expect(CalculateScore.exacts(code, guess)).to eq(0)
+    end
+
+    it "comparing 2 arrays of 1 element returns 1 if they have common element" do
+      code = [0]
+      guess = [0]
+      expect(CalculateScore.exacts(code, guess)).to eq(1)
+    end
+
+    it "comparing 2 arrays of 2 elements returns 2 if both elements are common and in the same places" do
+      code = [0, 1]
+      guess = [0, 1]
+      expect(CalculateScore.exacts(code, guess)).to eq(2)
+    end
+
+    it "comparing 2 arrays of 2 elements returns 0 if both elements are common but in different places" do
+      code = [0, 1]
+      guess = [1, 0]
+      expect(CalculateScore.exacts(code, guess)).to eq(0)
+    end
+
+    it "comparing 2 arrays of 2 elements returns 1 if one elements in common and in the same place" do
+      code = [0, 1]
+      guess = [2, 1]
+      expect(CalculateScore.exacts(code, guess)).to eq(1)
+    end
+
+
+  end
+
 end
