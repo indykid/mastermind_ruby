@@ -240,13 +240,53 @@ describe CalculateScore do
       expect(CalculateScore.exacts(code, guess)).to eq(0)
     end
 
-    it "comparing 2 arrays of 2 elements returns 1 if one elements in common and in the same place" do
+    it "comparing 2 arrays of 2 elements returns 1 if one element in common and in the same place" do
       code = [0, 1]
       guess = [2, 1]
       expect(CalculateScore.exacts(code, guess)).to eq(1)
     end
 
+    it "comparing 2 arrays of 3 elements returns 1 if only one same element which is in the same place" do
+      code = [0, 1, 1]
+      guess = [2, 1, 0]
+      expect(CalculateScore.exacts(code, guess)).to eq(1)
+    end
 
+    it "comparing 2 arrays of 3 elements returns 2 if only 2 of the same elements are in the same place" do
+      code = [0, 1, 1]
+      guess = [2, 1, 1]
+      expect(CalculateScore.exacts(code, guess)).to eq(2)
+    end
+
+    it "comparing 2 arrays of 3 elements returns 2 if only 2 of the same elements are in the same place" do
+      code = [0, 3, 1]
+      guess = [2, 3, 1]
+      expect(CalculateScore.exacts(code, guess)).to eq(2)
+    end
+
+    it "comparing 2 arrays of 3 elements returns 3 if 3 elements in common and are in the same place" do
+      code = [0, 3, 1]
+      guess = [2, 3, 1]
+      expect(CalculateScore.exacts(code, guess)).to eq(2)
+    end
+
+    it "comparing 4-element arrays returns 1 if only 1 element is the same and in the same place" do
+     code = [4, 5, 1, 8]
+     guess = [8, 5, 5, 4]
+     expect(CalculateScore.exacts(code, guess)).to eq(1)
+    end
+
+    it "comparing 4-element arrays returns 2 if only 2 elements are the same and in the same place" do
+     code = [4, 5, 1, 4]
+     guess = [8, 5, 5, 4]
+     expect(CalculateScore.exacts(code, guess)).to eq(2)
+    end
+
+    it "comparing 4-element arrays returns 3 if, only 3 elements are the same and in the same place" do
+     code = [4, 5, 5, 4]
+     guess = [8, 5, 5, 4]
+     expect(CalculateScore.exacts(code, guess)).to eq(3)
+    end
   end
 
 end
