@@ -15,10 +15,11 @@ describe Mastermind do
   end
 
   describe '#play' do
-    xit 'displays guess from codebreaker' do
+    it 'displays guess from codebreaker' do
+      input = StringIO.new("1\n0\n2\n1\n4\n4")
+      mastermind = Mastermind.new(output, codebreaker, input)
       mastermind.start
-      # puts codebreaker.guesses.to_s
-      expect(output.string).to include(codebreaker.guesses.last)
+      expect(output.string).to include(codebreaker.guesses.last.join("\n"))
     end
 
     it 'asks user for "correct colours" score' do

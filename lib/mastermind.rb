@@ -5,7 +5,7 @@ class Mastermind
   CORRECT_SCORE_REQUEST = "How many colours correct? "
   EXACT_SCORE_REQUEST   = "How many colours are in the exact spot? "
   USER_WIN_NOTICE       = "You rock!"
-  USER_LOSS_NOTICE      = "Better luck next time"
+  USER_LOSS_NOTICE      = "We broke your code! Better luck next time"
   MAX_ATTEMPTS          = 10
   HIGHEST_SCORE         = 4
 

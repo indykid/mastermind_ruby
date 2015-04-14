@@ -1,16 +1,16 @@
 require 'pry'
 class PermutationLogic
 
-  def self.generate(options, spaces)
+  def self.generate(options, size)
     result = []
 
-    if spaces == 1
+    if size == 1
       options.each do |a|
         result << [a]
       end
     end
 
-    if spaces == 2
+    if size == 2
       options.each do |a|
         options.each do |b|
           result << [a,b]
@@ -18,7 +18,7 @@ class PermutationLogic
       end
     end
 
-    if spaces == 3
+    if size == 3
       options.each do |a|
         options.each do |b|
           options.each do |c|
@@ -28,7 +28,7 @@ class PermutationLogic
       end
     end
 
-    if spaces == 4
+    if size == 4
       options.each do |a|
         options.each do |b|
           options.each do |c|
