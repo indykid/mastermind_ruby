@@ -5,7 +5,6 @@ class PermutationLogic
     result = []
 
     if spaces == 1
-      permutation = []
       options.each do |a|
         result << [a]
       end
