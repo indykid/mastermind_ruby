@@ -1,4 +1,4 @@
-class CalculateScore
+class Scorer
   def self.corrects(code, guess)
     corrects = 0
     commons = code & guess

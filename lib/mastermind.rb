@@ -24,7 +24,7 @@ class Mastermind
   end
 
   def play
-    display(codebreaker.guess.last)
+    display(codebreaker.guess)
     display(CORRECT_SCORE_REQUEST)
     capture_score(codebreaker.corrects)
     display(EXACT_SCORE_REQUEST)
