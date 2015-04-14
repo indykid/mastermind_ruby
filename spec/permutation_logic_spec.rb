@@ -67,5 +67,13 @@ describe PermutationLogic do
         ])
     end
 
+    it "given 6 options and four spaces generates 1296" do
+      options = [0, 1, 2, 3, 4, 5]
+      spaces  = 4
+      result  = PermutationLogic.generate(options, spaces)
+      expect(result.length).to eq(1296)
+      expect(result == result.uniq).to be(true)
+    end
+
   end
 end
